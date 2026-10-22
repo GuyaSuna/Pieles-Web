@@ -21,33 +21,34 @@ Desde esta carpeta, ejecutar `python -m http.server 4173` y visitar `http://loca
 - Cuatro biotipos; sensibilidad y tendencia al acné se evalúan como condiciones adicionales.
 - Empates o respuestas insuficientes se señalan como resultado no concluyente.
 - Seis guías con características, categorías de productos y rutina de mañana/noche.
-- Videos externos de AAD en YouTube, filtros y favoritos.
-- Espacio preparado para el video en lengua de señas uruguaya.
+- Videos externos con audio en español de RTVE Salud, Canal Enfermero y Medicina Televisión, con filtros y favoritos.
+- Video del profesor en lengua de señas, disponible en Inicio, Videos y Accesibilidad.
 - Lectura en voz alta de guías mediante las voces del navegador.
-- Nombre opcional, historial, diario con hábitos, experiencias personales con productos y exportación/borrado de datos.
+- Sección Reseñas en el menú y acceso desde Inicio y Mi espacio: producto, puntuación de 1 a 5 estrellas, experiencia, fecha y eliminación. Conserva las experiencias guardadas anteriormente.
+- Nombre opcional, historial, diario con hábitos y exportación/borrado de datos.
 - Presentación del proyecto, integrantes, docentes, objetivos, marco teórico, FODA, bibliografía, privacidad y accesibilidad.
 - Diseño adaptable, navegación por teclado, foco visible y respeto a la preferencia de reducir movimiento.
 - Caché del contenido esencial mediante service worker para visitas posteriores sin internet. YouTube y fuentes externas requieren conexión. Las tipografías externas tienen alternativas locales.
 
-## Incorporar el video de LSU
+## Video del profesor en lengua de señas
 
-1. Guardar el video como `assets/introduccion-lsu.mp4`.
-2. Opcionalmente, crear subtítulos WebVTT en español como `assets/introduccion-lsu.vtt` y una portada en `assets/introduccion-lsu.jpg`.
-3. En `content.js`, completar:
+El archivo facilitado el 22 de octubre de 2026 está incorporado como `assets/profesor-lengua-senas.mp4`, con una portada del mismo video en `assets/profesor-lengua-senas.jpg`. Dura aproximadamente 2 minutos y 41 segundos y pesa 14,7 MB. Se convirtió a H.264/AAC con inicio rápido para la web, conservando el encuadre completo de 478 × 850 y el audio.
+
+La configuración está en `content.js`:
 
 ```js
 signVideo: {
-  src: 'assets/introduccion-lsu.mp4',
-  captions: 'assets/introduccion-lsu.vtt',
-  poster: 'assets/introduccion-lsu.jpg'
+  src: 'assets/profesor-lengua-senas.mp4',
+  captions: '',
+  poster: 'assets/profesor-lengua-senas.jpg'
 }
 ```
 
-Dejar `captions` o `poster` vacíos si aún no existen. El reproductor reemplaza automáticamente el aviso pendiente. Mantener el video por debajo de los límites de archivos de GitHub (idealmente menos de 25 MB). La transcripción educativa está en la sección Accesibilidad y debe adaptarse al guion final si cambia.
+El reproductor tiene controles nativos y reproducción dentro de la página en móviles, sin inicio automático. No hay subtítulos ni transcripción verificada del archivo: la guía escrita de Accesibilidad se identifica como un recurso independiente. Para incorporar subtítulos revisados, agregar un WebVTT en `assets` y completar `captions`. El video no se guarda en la caché del service worker; las solicitudes parciales pasan directamente al servidor para permitir la reproducción y los saltos.
 
 ## Editar contenidos
 
-`content.js` contiene las preguntas, guías y videos. `app.js` contiene las vistas y funciones. `styles.css` define la identidad visual. Los videos son enlaces directos extraídos de las páginas oficiales de la Academia Americana de Dermatología; están en inglés, sin prometer subtítulos traducidos. Revisar periódicamente su disponibilidad. No se cargan reproductores externos automáticamente.
+`content.js` contiene las preguntas, guías y videos. `app.js` contiene las vistas y funciones. `styles.css` define la identidad visual. Los videos seleccionados tienen audio en español; cada tarjeta identifica al proveedor y enlaza su fuente. Se verificaron en las páginas de RTVE Salud, Diario Enfermero (Consejo General de Enfermería) y Medicina Televisión el 22 de octubre de 2026. Revisar periódicamente su disponibilidad. No se cargan reproductores externos automáticamente. Las referencias escritas de AAD siguen disponibles como bibliografía en inglés.
 
 Las ilustraciones de rostros se dibujan en SVG desde código y están inspiradas en las referencias, adaptadas a una web. `assets/propuestas-logo.png` conserva la lámina de propuestas del documento como recurso de referencia; no se presenta como un logotipo individual. El escudo de la escuela proviene del documento facilitado.
 
@@ -61,12 +62,12 @@ Para cambios del contenido sin conexión, incrementar la versión `CACHE` en `sw
 
 ## Comprobaciones
 
-Ejecutar `node --test tests/site.test.cjs` con Node.js 18 o superior. Las 12 pruebas comprueban vistas, clasificación, respuestas no concluyentes, sensibilidad, persistencia, escape de texto, configuración del video y rutas relativas. Se comprobó también que el servidor local entrega HTML, JavaScript e imágenes con respuesta HTTP 200. Estas comprobaciones no sustituyen la revisión visual en un navegador; la herramienta de navegador de la sesión no pudo conectarse.
+Ejecutar `node --test tests/site.test.cjs` con Node.js 18 o superior. Las 15 pruebas comprueban vistas, clasificación, respuestas no concluyentes, sensibilidad, persistencia, escape de texto, recursos del video, enlaces de videos en español y rutas relativas. Incluyen guardar, recuperar y eliminar reseñas, así como rechazar puntuaciones inválidas. Estas comprobaciones no sustituyen la revisión visual en un navegador; la sesión no tiene un navegador conectado para esa revisión.
 
 ## Lista para la entrega
 
 - Verificar nombres y datos institucionales con las alumnas.
-- Incorporar el video propio de LSU cuando esté grabado.
+- Revisar el video del profesor y preparar subtítulos o una transcripción verificada si se necesitan.
 - Revisar el contenido educativo con docentes y, si es posible, un profesional de dermatología.
 - Publicar y probar el enlace desde un celular.
 
