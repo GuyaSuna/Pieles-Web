@@ -21,7 +21,7 @@ Desde esta carpeta, ejecutar `python -m http.server 4173` y visitar `http://loca
 - Cuatro biotipos; sensibilidad y tendencia al acné se evalúan como condiciones adicionales.
 - Empates o respuestas insuficientes se señalan como resultado no concluyente.
 - Seis guías con características, categorías de productos y rutina de mañana/noche.
-- Videos externos con audio en español de RTVE Salud, Canal Enfermero y Medicina Televisión, con filtros y favoritos.
+- Videos externos con audio en español de Canal Enfermero y Medicina Televisión, con filtros y favoritos. El video de protección solar abre directamente en YouTube.
 - Video del profesor en lengua de señas, disponible en Inicio, Videos y Accesibilidad.
 - Lectura en voz alta de guías mediante las voces del navegador.
 - Sección Reseñas en el menú y acceso desde Inicio y Mi espacio: producto, puntuación de 1 a 5 estrellas, experiencia, fecha y eliminación. Conserva las experiencias guardadas anteriormente.
@@ -48,7 +48,7 @@ El reproductor tiene controles nativos y reproducción dentro de la página en m
 
 ## Editar contenidos
 
-`content.js` contiene las preguntas, guías y videos. `app.js` contiene las vistas y funciones. `styles.css` define la identidad visual. Los videos seleccionados tienen audio en español; cada tarjeta identifica al proveedor y enlaza su fuente. Se verificaron en las páginas de RTVE Salud, Diario Enfermero (Consejo General de Enfermería) y Medicina Televisión el 22 de octubre de 2026. Revisar periódicamente su disponibilidad. No se cargan reproductores externos automáticamente. Las referencias escritas de AAD siguen disponibles como bibliografía en inglés.
+`content.js` contiene las preguntas, guías y videos. `app.js` contiene las vistas y funciones. `styles.css` define la identidad visual. Los videos seleccionados tienen audio en español; cada tarjeta identifica al proveedor y enlaza su fuente. Se verificaron en Canal Enfermero en YouTube, Diario Enfermero (Consejo General de Enfermería) y Medicina Televisión el 22 de octubre de 2026. El recurso de RTVE se reemplazó por «Protección solar: ¿cómo y cuándo aplicarla?» de Canal Enfermero debido al problema de acceso comunicado. Revisar periódicamente su disponibilidad. No se cargan reproductores externos automáticamente. Las referencias escritas de AAD siguen disponibles como bibliografía en inglés.
 
 Las ilustraciones de rostros se dibujan en SVG desde código y están inspiradas en las referencias, adaptadas a una web. `assets/propuestas-logo.png` conserva la lámina de propuestas del documento como recurso de referencia; no se presenta como un logotipo individual. El escudo de la escuela proviene del documento facilitado.
 
